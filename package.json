@@ -10,6 +10,13 @@
   "license": "MIT",
   "devDependencies": {
     "@nestjs/common": "^8.0.6",
-    "@nestjs/core": "^8.0.6"
+    "@nestjs/core": "^8.0.6",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.3.0"
+  },
+  "peerDependencies": {
+    "stripe": "^8.170.0",
+    "@nestjs/core": "^8.0.6 || ^7",
+    "@nestjs/common": "^8.0.6 || ^7"
   }
 }
