@@ -15,5 +15,19 @@
       "paths": {
         "@/*" :["lib/*"],
       },
+    },
+    "include": ["lib/**/*"],
+    "exclude": ["node_modules", "**/*.spec.ts"],
+    "watchOptions": {
+      "watchFile": "useFsEvents",
+      "watchDirectory": "useFsEvents",
+      // Poll files for updates more frequently
+      // when they're updated a lot.
+      "fallbackPolling": "dynamicPriority",
+      // Don't coalesce watch notification
+      // Finally, two additional settings for reducing the amount of possible
+      // files to track  work from these directories
+      "excludeDirectories": ["**/node_modules", "_build"],
+      "excludeFiles": ["build/fileWhichChangesOfent.ts"]
     }
   }
