@@ -1,0 +1,15 @@
+{
+  "name": "@haorama/nest-stripe",
+  "version": "0.0.1",
+  "description": "Stripe module for nestjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nestjs/common": "^8.0.6",
+    "@nestjs/core": "^8.0.6"
+  }
+}
