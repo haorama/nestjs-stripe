@@ -2,6 +2,7 @@ import { DynamicModule, Module, Provider } from "@nestjs/common";
 import { STRIPE_SERVICE } from "./constants";
 import { StripeModuleOptions } from "./interfaces";
 import Stripe from 'stripe';
+import { WebhookController } from "./webhook.controller";
 
 @Module({})
 export class StripeModule {
@@ -16,7 +17,7 @@ export class StripeModule {
     const controllers = [];
 
     if (options.webhook?.enabled) {
-      controllers.push(require('./webhook.controller'))
+      controllers.push(WebhookController)
     }
 
     return {

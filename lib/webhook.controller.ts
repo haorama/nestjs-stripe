@@ -1,9 +1,9 @@
-import { Controller, Post } from "@nestjs/common";
+import { Controller, Post, Get } from "@nestjs/common";
 
 @Controller('stripe')
 export class WebhookController {
-  @Post('webhook')
+  @Get('webhook')
   async handle() {
-
+    return true
   }
 }
