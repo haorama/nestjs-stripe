@@ -13,11 +13,18 @@ export class StripeModule {
       }
     ]
 
+    const controllers = [];
+
+    if (options.webhook?.enabled) {
+      controllers.push(require('./webhook.controller'))
+    }
+
     return {
+      providers,
+      controllers,
       global: options.global ?? true,
       module: StripeModule,
-      providers: providers,
-      exports: providers
+      exports: providers,
     }
   }
 }
