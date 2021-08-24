@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Stripe module for nestjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf -rf dist && tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
     "@nestjs/core": "^8.0.6",
     "@types/node": "^16.7.1",
     "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
     "rxjs": "^7.3.0",
     "stripe": "^8.170.0",
     "ts-loader": "^9.2.5",
