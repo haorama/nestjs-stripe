@@ -1,16 +1,14 @@
-import { DynamicModule, Global, Module, Provider } from "@nestjs/common";
-import { StripeModuleOptions } from "./interfaces";
+import { DynamicModule, Module, Provider } from "@nestjs/common";
+import { StripeModuleAsyncOptions, StripeModuleOptions } from "./interfaces";
 import Stripe from 'stripe';
 import { WebhookService } from "./webhook.service";
 import { DiscoveryModule } from "@nestjs/core";
+import { createStripeProvider } from "./provider";
 
 @Module({})
 export class StripeModule {
   static register(options: StripeModuleOptions): DynamicModule {
-    const stripeProvider: Provider = {
-      provide: Stripe,
-      useValue: new Stripe(options.secretKey, options.stripeConfig),
-    }
+    const stripeProvider = createStripeProvider(options);
 
     return {
       module: StripeModule,
@@ -18,6 +16,25 @@ export class StripeModule {
       providers: [WebhookService, stripeProvider],
       exports: [WebhookService, Stripe],
       imports: [DiscoveryModule]
+    }
+  }
+
+  static registerAsync(options: StripeModuleAsyncOptions): DynamicModule {
+    let isGlobal = true;
+
+    const stripeProvider: Provider = {
+      provide: Stripe,
+      useFactory: (stripeModuleOptions: StripeModuleOptions) => {
+        isGlobal = stripeModuleOptions.global ?? true;
+        return new Stripe(stripeModuleOptions.secretKey, stripeModuleOptions.stripeConfig)
+      }
+    };
+
+    return {
+      global: isGlobal,
+      module: StripeModule,
+      imports: options.imports,
+      exports: [Stripe, WebhookService],
     }
   }
 }
