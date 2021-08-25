@@ -1,5 +1,4 @@
 import { DynamicModule, Global, Module } from "@nestjs/common";
-import { STRIPE_SERVICE } from "./constants";
 import { StripeModuleOptions } from "./interfaces";
 import Stripe from 'stripe';
 import { WebhookService } from "./webhook.service";
@@ -10,7 +9,7 @@ import { DiscoveryModule } from "@nestjs/core";
 export class StripeModule {
   static register(options: StripeModuleOptions): DynamicModule {
     const stripeProvider = {
-      provide: STRIPE_SERVICE,
+      provide: Stripe,
       useValue: new Stripe(options.secretKey, options.stripeConfig),
     }
 
@@ -18,7 +17,7 @@ export class StripeModule {
       module: StripeModule,
       global: options.global ?? true,
       providers: [WebhookService, stripeProvider],
-      exports: [WebhookService, stripeProvider],
+      exports: [WebhookService, Stripe],
       imports: [DiscoveryModule]
     }
   }
