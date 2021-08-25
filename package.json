@@ -6,8 +6,8 @@
     "build": "rimraf -rf dist && tsc -p tsconfig.json",
     "build:watch": "tsc -p tsconfig.json --watch"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["nestjs", "stripe", "nestjs stripe", "payment", "payment processing"],
+  "author": "Michael Lazuardy",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
