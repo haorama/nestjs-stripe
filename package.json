@@ -8,6 +8,10 @@
   },
   "keywords": ["nestjs", "stripe", "nestjs stripe", "payment", "payment processing"],
   "author": "Michael Lazuardy",
+  "repository": {
+    "url": "https://github.com/haorama/nestjs-stripe",
+    "type": "git"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
