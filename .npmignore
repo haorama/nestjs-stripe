@@ -50,10 +50,5 @@ static/storage/*
 !.yarn/versions
 .pnp.*
 
-# source
-**/*.ts
-*.ts
-
-# definitions
-!**/*.d.ts
-!*.d.ts
+# Source
+/lib

@@ -9,4 +9,5 @@ Use this package only for testing purpose
 
 ## Installation
 `npm install --save @haorama/nestjs-stripe`
+
 `yarn add @haorama/nestjs-stripe`
