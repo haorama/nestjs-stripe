@@ -4,10 +4,25 @@
   "description": "Stripe module for nestjs",
   "scripts": {
     "build": "rimraf -rf dist && tsc -p tsconfig.json",
-    "build:watch": "tsc -p tsconfig.json --watch"
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nestjs",
+    "stripe",
+    "nestjs stripe",
+    "payment",
+    "payment processing"
+  ],
+  "author": "Michael Lazuardy",
+  "repository": {
+    "url": "https://github.com/haorama/nestjs-stripe",
+    "type": "git"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -17,11 +32,15 @@
   "devDependencies": {
     "@nestjs/common": "^8.0.6",
     "@nestjs/core": "^8.0.6",
+    "@nestjs/testing": "^8.0.6",
+    "@types/jest": "^27.0.1",
     "@types/node": "^16.7.1",
+    "jest": "^27.0.6",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.3.0",
     "stripe": "^8.170.0",
+    "ts-jest": "^27.0.5",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.2.1",
     "tsconfig-paths": "^3.10.1",
@@ -32,5 +51,22 @@
     "@nestjs/core": "^7.0.0 || ^8.0.0",
     "reflect-metadata": "^0.1.12",
     "stripe": "^8.170.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "lib",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   }
 }
