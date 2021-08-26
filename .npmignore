@@ -49,3 +49,11 @@ static/storage/*
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# source
+**/*.ts
+*.ts
+
+# definitions
+!**/*.d.ts
+!*.d.ts
