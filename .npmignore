@@ -33,22 +33,17 @@ tsconfig.tsbuildinfo
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 
 # Storage
 static/storage/*
 
 # Yarn
 .yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
 .pnp.*
 
 # Source
 /lib
+
+# Config
+tsconfig.json
+tsconfig.build.json
