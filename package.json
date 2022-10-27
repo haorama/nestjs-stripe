@@ -1,6 +1,6 @@
 {
   "name": "@haorama/nestjs-stripe",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Stripe module for nestjs",
   "scripts": {
     "build": "rimraf -rf dist && tsc -p tsconfig.json",
