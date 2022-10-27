@@ -1,7 +1,6 @@
 import { DynamicModule, Module, Provider } from "@nestjs/common";
 import { StripeModuleAsyncOptions, StripeModuleOptions, StripeOptionsFactory } from "./interfaces";
 import Stripe from 'stripe';
-import { WebhookService } from "./webhook.service";
 import { DiscoveryModule } from "@nestjs/core";
 import { createStripeProvider } from "./provider";
 import { STRIPE_MODULE_OPTIONS } from "./constants";
@@ -14,8 +13,8 @@ export class StripeModule {
     return {
       module: StripeModule,
       global: options.global ?? true,
-      providers: [WebhookService, stripeProvider],
-      exports: [Stripe, WebhookService],
+      providers: [stripeProvider],
+      exports: [Stripe],
       imports: [DiscoveryModule]
     }
   }
@@ -41,8 +40,8 @@ export class StripeModule {
       imports,
       global: isGlobal,
       module: StripeModule,
-      exports: [Stripe, WebhookService],
-      providers: [stripeProvider, WebhookService, ...this.createAsyncProviders(options)]
+      exports: [Stripe],
+      providers: [stripeProvider, ...this.createAsyncProviders(options)]
     }
   }
 
